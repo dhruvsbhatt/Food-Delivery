@@ -1,0 +1,25 @@
+{
+    "menu": [
+        {
+            "image": "Pizza0",
+            "name": "Deluxe",
+            "ingredients": "Chicken, ham, pepperoni, tomato sauce, spicy chorizo and mozarella",
+            "dimensions": "150 gms, 35 cm",
+            "price": 46
+        },
+        {
+            "image": "Pizza1",
+            "name": "Hawaiian",
+            "ingredients": "Chicken, Mozarella, Pineapple, Domino's sauce",
+            "dimensions": "200 gms, 35 cm",
+            "price": 55
+        },
+        {
+            "image": "Pizza2",
+            "name": "Pepperoni",
+            "ingredients": "Mozarella, Pepproni, Tomatoes, BBQ sauce",
+            "dimensions": "190 gms, 40 cm",
+            "price": 55
+        }
+    ]
+}
