@@ -77,7 +77,7 @@
                                                     </collectionViewCellContentView>
                                                     <size key="customSize" width="412" height="277"/>
                                                     <connections>
-                                                        <outlet property="imgVwBackground" destination="FNp-MM-Asv" id="dJY-xh-sVU"/>
+                                                        <outlet property="lblDiscountText" destination="Tg9-gs-PDf" id="Gi7-Co-MvY"/>
                                                     </connections>
                                                 </collectionViewCell>
                                             </cells>
@@ -242,7 +242,7 @@
                     <connections>
                         <outlet property="btnCart" destination="cmo-Yu-HkN" id="yyz-On-15t"/>
                         <outlet property="clxnVw" destination="UER-IO-0FD" id="7M1-kV-uKk"/>
-                        <outlet property="lblCount" destination="Ho8-Wg-BOv" id="Drt-dc-i12"/>
+                        <outlet property="lblCount" destination="Ho8-Wg-BOv" id="GYr-qW-GNp"/>
                         <outlet property="pgControl" destination="04l-bQ-be4" id="XGl-d2-4zU"/>
                         <outlet property="uiTableView" destination="91W-zE-iqP" id="9YA-eZ-vhH"/>
                         <outlet property="vwCart" destination="Swu-Gt-e4X" id="nQD-Bm-N7m"/>

@@ -32,9 +32,8 @@ class DashboardRouter: PresenterToRouterProtocol {
         return UIStoryboard(name: "Main", bundle: Bundle.main)
     }
     
-    func pushToCheckoutScreen(menu: [MenuModel], navigationConroller: UINavigationController) {
+    func pushToCheckoutScreen(navigationConroller: UINavigationController) {
         let checkoutModule = CheckoutRouter.createCheckoutModule()
-        checkoutModule.arrCart = menu
         navigationConroller.isNavigationBarHidden = false
         navigationConroller.pushViewController(checkoutModule, animated: true)
     }

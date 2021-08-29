@@ -15,7 +15,7 @@ class DashboardVC: UIViewController {
     var arrMenu: Menu!
     let disposeBag = DisposeBag()
     var presentor: ViewToPresenterProtocol?
-    var arrOrder = [MenuModel]()
+    let discountContent = ["Monday discount", "Tuesday discount", "Wednesday discount"]
     
     @IBOutlet weak var uiTableView: UITableView!
     @IBOutlet weak var vwCart: UIView!
@@ -35,9 +35,21 @@ class DashboardVC: UIViewController {
         
         btnCart.rx.tap
             .bind {
-                self.presentor?.showCheckoutController(menu: self.arrOrder, navigationController: self.navigationController!)
+                if arrCart.count > 0 {
+                    self.presentor?.showCheckoutController(navigationController: self.navigationController!)
+                } else {
+                    let alert = UIAlertController(title: "Alert", message: "Your cart is empty", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
             }
             .disposed(by: disposeBag)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.lblCount.text = String(arrCart.count)
+        self.lblCount.isHidden = arrCart.count > 0 ? false : true
     }
 }
 
@@ -82,8 +94,8 @@ extension DashboardVC: UITableViewDelegate, UITableViewDataSource {
                 .bind {
                     cell.btnPrice.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
                     cell.btnPrice.setTitle("added + 1", for: .normal)
-                    self.arrOrder.append(menu)
-                    self.lblCount.text = String(self.arrOrder.count)
+                    arrCart.append(menu)
+                    self.lblCount.text = String(arrCart.count)
                     self.lblCount.isHidden = false
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                         cell.btnPrice.backgroundColor = UIColor.black
@@ -121,13 +133,13 @@ class DashboardCell: UITableViewCell {
 }
 
 class DashboardRequestCell: UICollectionViewCell {
-    @IBOutlet weak var imgVwBackground: UIImageView!
+    @IBOutlet weak var lblDiscountText: UILabel!
 }
 
 extension DashboardVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return discountContent.count
     }
     
     func collectionView(
@@ -138,6 +150,8 @@ extension DashboardVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
                     for: indexPath) as? DashboardRequestCell else {
             return UICollectionViewCell()
         }
+        
+        clxnCell.lblDiscountText.text = discountContent[indexPath.item]
         
         return clxnCell
     }

@@ -8,14 +8,6 @@
 import UIKit
 import Foundation
 
-struct CheckoutEntryEntity {
-    let menu: Menu
-    init(menu: Menu) {
-        self.menu = menu
-    }
-}
-
-
 class CheckoutRouter: PresenterToRouterCheckoutProtocol {
  
     static func createCheckoutModule() -> CheckoutVC {

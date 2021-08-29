@@ -8,6 +8,8 @@
 import UIKit
 import Foundation
 
+var arrCart = [MenuModel]()
+
 let PROGRESS_INDICATOR_VIEW_TAG: Int = 10
 
 /* Show Progress Indicator */

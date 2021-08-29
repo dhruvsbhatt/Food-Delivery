@@ -18,8 +18,8 @@ class DashboardPresenter: ViewToPresenterProtocol {
         interactor?.fetchMenu()
     }
     
-    func showCheckoutController(menu: [MenuModel], navigationController: UINavigationController) {
-        router?.pushToCheckoutScreen(menu: menu, navigationConroller: navigationController)
+    func showCheckoutController(navigationController: UINavigationController) {
+        router?.pushToCheckoutScreen(navigationConroller: navigationController)
     }
 }
 

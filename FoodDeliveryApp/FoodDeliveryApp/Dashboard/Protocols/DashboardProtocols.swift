@@ -13,7 +13,7 @@ protocol ViewToPresenterProtocol: AnyObject {
     var interactor: PresenterToInteractorProtocol? { get set }
     var router: PresenterToRouterProtocol? { get set}
     func startFetchingMenu()
-    func showCheckoutController(menu: [MenuModel], navigationController: UINavigationController)
+    func showCheckoutController(navigationController: UINavigationController)
 }
 
 protocol PresenterToViewProtocol: AnyObject{
@@ -22,8 +22,7 @@ protocol PresenterToViewProtocol: AnyObject{
 }
 
 protocol PresenterToRouterProtocol: AnyObject {
-//    static func createModule()-> NoticeViewController
-    func pushToCheckoutScreen(menu: [MenuModel], navigationConroller: UINavigationController)
+    func pushToCheckoutScreen(navigationConroller: UINavigationController)
 }
 
 protocol PresenterToInteractorProtocol: AnyObject {

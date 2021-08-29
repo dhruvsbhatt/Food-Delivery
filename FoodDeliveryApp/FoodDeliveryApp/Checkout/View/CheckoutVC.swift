@@ -11,7 +11,6 @@ import RxSwift
 class CheckoutVC: UIViewController {
     
     var checkoutPresenter: ViewToPresenterCheckoutProtocol?
-    var arrCart: [MenuModel]!
     
     @IBOutlet weak var lblTotal: UILabel!
     
@@ -52,9 +51,13 @@ extension CheckoutVC: UITableViewDelegate, UITableViewDataSource {
         
         cell.btnDelete.rx.tap
             .bind {
-                self.arrCart.remove(at: indexPath.row)
-                tableView.reloadData()
-                self.showTotal()
+                arrCart.remove(at: indexPath.row)
+                if arrCart.count > 0 {
+                    tableView.reloadData()
+                    self.showTotal()
+                } else {
+                    self.navigationController?.popViewController(animated: true)
+                }
             }
             .disposed(by: cell.disposeBag)
         
